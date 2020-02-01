@@ -43,7 +43,7 @@ CREATE TABLE `comentario` (
 
 CREATE TABLE `postagem` (
   `id` int(11) NOT NULL,
-  `ttitulo` varchar(200) NOT NULL,
+  `titulo` varchar(200) NOT NULL,
   `conteudo` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ucs2;
 
