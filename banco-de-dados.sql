@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Fev-2020 às 16:47
+-- Generation Time: 01-Fev-2020 às 16:57
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 7.3.1
 
@@ -71,6 +71,12 @@ ALTER TABLE `postagem`
 -- AUTO_INCREMENT for table `comentario`
 --
 ALTER TABLE `comentario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `postagem`
+--
+ALTER TABLE `postagem`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
