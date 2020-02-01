@@ -8,6 +8,8 @@
 	require_once 'app/Controller/ErroController.php';
 	
 	require_once 'app/Model/Postagem.php';
+	
+	require_once 'vendor/autoload.php';
 
 	$template = file_get_contents('app/Template/estrutura.html');
 

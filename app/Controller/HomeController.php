@@ -5,12 +5,17 @@
 		public function index()
 		{
 			try {
-				// echo 'Home';
 				$colecPostagens = Postagem::selecionaTodos();
-	
-				echo "<pre>";
-				var_dump($colecPostagens);
-				echo "/<pre>";
+
+				$loader = new \Twig\Loader\FilesystemLoader('app/View');
+				$twig = new \Twig\Environment($loader);
+				$template = $twig->load('home.html');
+
+				$parametros = array();
+				$parametros['postagens'] = $colecPostagens;
+
+				$conteudo = $template->render($parametros);
+				echo $conteudo; 
 			}
 			catch (Exception $e)
 			{
