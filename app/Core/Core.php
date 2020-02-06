@@ -4,7 +4,7 @@
 	{
 		public function start($urlGet)
 		{
-			$acao = 'index';
+			$acao = isset($urlGet['metodo']) ? $urlGet['metodo'] : "index";
 
 			if(isset($urlGet['pagina']))
 			{
