@@ -75,4 +75,25 @@
 
 			return true;
 		}
+
+		public static function update($params)
+		{
+			$con = Connection::getConn();
+
+			$sql = "UPDATE postagem SET titulo = :titulo, conteudo = :conteudo WHERE id=:id";
+			$sql = $con->prepare($sql);
+			$sql->bindValue("titulo", $params['titulo']);
+			$sql->bindValue("conteudo", $params['conteudo']);
+			$sql->bindValue("id", $params['id']);
+			$resultado = $sql->execute();
+
+			if(!$resultado)
+			{
+				throw new Exception("Falha ao atualizar publicação");
+
+				return false;
+			}
+
+			return true;
+		}
 	}
