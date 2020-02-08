@@ -8,7 +8,10 @@
 			$twig = new \Twig\Environment($loader);
 			$template = $twig->load('admin.html');
 
+			$objPostagens = Postagem::selecionaTodos();
+
 			$parametros = array();
+			$parametros['postagens'] = $objPostagens;
 
 			$conteudo = $template->render($parametros);
 			echo $conteudo;
@@ -28,6 +31,18 @@
 
 		public function insert($data)
 		{
-			var_dump($_POST);
+			try
+			{
+				Postagem::insert($_POST);
+
+				header("Location");
+				echo "<script>alert('Publicação inserida com sucesso!');</script>";
+				echo '<script>location.href="http://localhost/?pagina=admin&metodo=index"</script>';
+			}
+			catch (Exception $e)
+			{
+				echo "<script>alert('" . $e->getMessage() . "');</script>";
+				echo '<script>location.href="http://localhost/?pagina=admin&metodo=create"</script>';
+			}
 		}
 	}
