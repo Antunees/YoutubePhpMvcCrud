@@ -96,4 +96,23 @@
 
 			return true;
 		}
+
+		public static function delete($paramId)
+		{
+			$con = Connection::getConn();
+
+			$sql = "DELETE FROM postagem WHERE id=:idPostagem";
+			$sql = $con->prepare($sql);
+			$sql->bindValue("idPostagem", $paramId);
+			$resultado = $sql->execute();
+
+			if(!$resultado)
+			{
+				throw new Exception("Falha ao remover publicação!");
+
+				return false;
+			}
+
+			return true;
+		}
 	}
